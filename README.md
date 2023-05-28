@@ -1,123 +1,123 @@
-# flutter_tiktok
+#flutter_tiktok
 
-仿写抖音的flutter app。主要实现了看视频功能，可以非常流畅的刷视频，左右滑，点小爱心。  
+A flutter app that imitates Douyin. It mainly realizes the function of watching videos. You can swipe videos very smoothly, slide left and right, and click a little heart.
 
-当前支持了flutter_web，但是在移动端浏览器的体验非常有限。
+Flutter_web is currently supported, but the experience in mobile browsers is very limited.
 
-# 新特性(开发中)
+# New features (under development)
 
-🎉欢迎大家对本项目的关注，我本来是想等官方的videoplayer支持全部平台后，再扩展到全平台的。
+🎉Welcome everyone to pay attention to this project. I originally wanted to expand to all platforms after the official videoplayer supports all platforms.
 
-但是现在看到pub上已经有了各个平台的播放器，所以本项目即将要支持全部平台啦🎉🎉🎉。
+But now I see that there are already players for various platforms on the pub, so this project will soon support all platforms 🎉🎉🎉.
 
-以下为正在开发中，计划支持的功能：
+The following functions are under development and planned to be supported:
 
-- 在iOS/Android系统上重新启用fijkplayer
-- 支持MacOS系统
-- 支持Linux系统
-- 支持Windows系统
+- Re-enable fijkplayer on iOS/Android
+- Support MacOS system
+- Support Linux system
+- Support Windows system
 
-# 项目常见问题
-1. **和抖音不像**：主要交互已完全实现，可以随意根据自己的业务需求修改页面。
-2. **UI性能问题**：在安卓和iOS上，本项目都非常丝滑，没有性能问题。在web上会比较卡，在移动端web平台尤其卡，是因为flutter web本身性能有限，移动端的浏览器性能也较弱，此处只能坐等官方优化。
+# Project FAQ
+1. **Not like Douyin**: The main interaction has been fully realized, and you can modify the page at will according to your business needs.
+2. **UI performance issue**: On both Android and iOS, this project is very smooth and has no performance issues. It will be relatively slow on the web, especially on the mobile web platform, because the performance of the flutter web itself is limited, and the performance of the mobile browser is also weak, so we can only wait for the official optimization here.
 
-有其他问题也可以加Q群反馈
+If you have other questions, you can also add Q group feedback
 
-<a target="_blank" href="https://jq.qq.com/?_wv=1027&k=5bcc0gy"><img border="0" src="https://pub.idqqimg.com/wpa/images/group.png" alt="FlutterCandies" title="FlutterCandies"></a>
+<a target="_blank" href="https://jq.qq.com/?_wv=1027&k=5bcc0gy"><img border="0" src="https://pub.idqqimg.com/wpa/ images/group.png" alt="FlutterCandies" title="FlutterCandies"></a>
 
-进群需要回答基础知识问题。
+Entering the group requires answering basic knowledge questions.
 
-# 实现功能
+# implement the function
 
-- 上下刷视频，视频会自动加载封面，支持无限下拉加载视频，会动态的新增播放器，控制内存占用
-- 支持释放之前的播放器，并支持在往回滑动时重新init(不依赖widget生命周期)
-- 支持了预加载视频，可以控制预加载数量
-- 左右滑动去搜索与个人中心
-- 双击冒爱心点赞
-- 看评论
-- 切换底部Tabbar
+- DTijCmU5aS98c6gihFDmkSUmKgTCXBGHrXrHXJv61aXf
+- Support releasing the previous player, and support re-init when sliding back (does not depend on widget life cycle)
+- Support for preloading videos, you can control the number of preloading
+- Swipe left and right to search and personal center
+-Double-tap the love to like
+- see comments
+- Toggle bottom Tabbar
 
-# 应用截图
+# App screenshot
 
-![截图1](./screenshot.png)
+![Screenshot 1](./screenshot.png)
 
-# 细节
+# detail
 
-适配了不同比例屏幕，在细长的屏幕上，底部tabbar不会叠加在视频上：
-
-
-![截图1](./screen.png)
-
-图示为debug下强行调整的效果，App会根据手机当前的屏幕比例来自动判断
+Adapted to screens with different ratios, on slender screens, the bottom tabbar will not be superimposed on the video:
 
 
-# 其他
+![Screenshot 1](./screen.png)
 
-其他页面不属于视频业务的，就简单仿写了样式。需要自定义项目的话，简单替换成自己写的各种页面即可。  
-
-需要无限增加视频的，只需要在PageView滑动到最后的时候给数组添加视频就行，很简单。  
-
-加载一定量视频后记得释放掉不用的播放器，避免内存用太多而闪退。
-
-# 项目结构
+The picture shows the effect of forced adjustment under debug, and the app will automatically judge according to the current screen ratio of the mobile phone
 
 
-依赖：
+# other
+
+For other pages that do not belong to the video business, the style is simply imitated. If you need to customize the project, simply replace it with various pages written by yourself.
+
+DTijCmU5aS98c6gihFDmkSUmKgTCXBGHrXrHXJv61aXf
+
+After loading a certain amount of videos, remember to release unused players to avoid flashback due to excessive memory usage.
+
+# Project structure
+
+
+rely:
 ```yaml
-  # 加载动画库(好像改版之后就没用到了)
-  flutter_spinkit: ^4.1.2
-  # Bilibili开源的视频播放组件
-  fijkplayer: ^0.8.3
-  # 基础的透明动画点击效果
-  tapped: any
-  # map安全取值
-  safemap: any
+   # Load the animation library (it seems to be useless after the revision)
+   flutter_spinkit: ^4.1.2
+   # Bilibili open source video playback component
+   fijkplayer: ^0.8.3
+   # Basic transparent animation click effect
+   tapped: any
+   # map safe value
+   safemap: any
 ```
-主要文件：
+Main file:
 ```bash
 ./lib
-├── main.dart
+├── main. dart
 ├── mock
-│   └── video.dart # 假数据
+│ └── video.dart # fake data
 ├── other
-│   └── bottomSheet.dart # 修改了系统BottomSheet的高度
+│ └── bottomSheet.dart # Modified the height of the system BottomSheet
 ├── pages
-│   ├── cameraPage.dart # 拍摄页（没有实际功能）
-│   ├── followPage.dart  # 略
-│   ├── homePage.dart # 主页面，包含tikTokScaffold的实际应用功能
-│   ├── msgDetailListPage.dart # 略
-│   ├── msgPage.dart # 略
-│   ├── searchPage.dart # 略
-│   ├── todoPage.dart # 略
-│   ├── userDetailPage.dart # 略
-│   ├── userPage.dart # 略
-│   └── walletPage.d # 略
+│ ├── cameraPage.dart # camera page (no actual function)
+│ ├── followPage.dart # slightly
+│ ├── homePage.dart # Main page, including the actual application functions of tikTokScaffold
+│ ├── msgDetailListPage.dart # Omit
+│ ├── msgPage.dart # slightly
+│ ├── searchPage.dart # slightly
+│ ├── todoPage.dart # slightly
+│ ├── userDetailPage.dart # slightly
+│ ├── userPage.dart # slightly
+│ └── walletPage.d # slightly
 ├── style
-│   ├── style.dart # 全局文字大小与颜色
-│   └── text.dart # 主要的几个文字样式
+│ ├── style.dart # Global text size and color
+│ └── text.dart # Several main text styles
 └── views
-    ├── backButton.dart # iOS形状的返回按钮组件
-    ├── loadingButton.dart # 可以设置为载入样式的按钮组件
-    ├── selectText.dart # 可设置为“选中”或者“未选中”样式的文字
-    ├── tikTokCommentBottomSheet.dart # 仿Tiktok评论样式
-    ├── tikTokHeader.dart # 仿Tiktok顶部切换组件
-    ├── tikTokScaffold.dart # 仿Tiktok核心脚手架，封装了手势与切换等功能，本身不包含UI内容
-    ├── tikTokVideo.dart # 仿Tiktok的视频UI样式封装，不包含视频播放
-    ├── tikTokVideoButtonColumn.dart # 仿Tiktok视频右侧的头像与点赞等按钮列的组件
-    ├── tikTokVideoGesture.dart # 仿Tiktok的双击点赞效果
-    ├── tikTokVideoPlayer.dart # 视频播放页面，带有控制滑动的VideoListController类
-    ├── tiktokTabBar.dart # 仿Tiktok的底部Tabbar组件
-    ├── tilTokAppBar.dart # 仿Tiktok的Appbar组件
-    ├── topToolRow.dart # 用户页面的顶部状态，在tab切换到user页面时隐藏返回按钮
-    └── userMsgRow.dart # 一条用户信息的样式组件
+     ├── backButton.dart # iOS-shaped back button component
+     ├── loadingButton.dart # A button component that can be set as a loading style
+     ├── selectText.dart # Text that can be set as "selected" or "unselected"
+     ├── tikTokCommentBottomSheet.dart # imitation Tiktok comment style
+     ├── tikTokHeader.dart # Imitation Tiktok top switch component
+     ├── tikTokScaffold.dart # Imitate the core scaffolding of Tiktok, which encapsulates functions such as gestures and switching, and does not contain UI content itself
+     ├── tikTokVideo.dart # Tiktok-like video UI style package, does not include video playback
+     ├── tikTokVideoButtonColumn.dart # Components that imitate the avatar and like buttons on the right side of Tiktok videos
+     ├── tikTokVideoGesture.dart # Imitate Tiktok's double click like effect
+     ├── tikTokVideoPlayer.dart # Video playback page, with VideoListController class for sliding control
+     ├── tiktokTabBar.dart # Bottom Tabbar component imitating Tiktok
+     ├── tilTokAppBar.dart # Tiktok-like Appbar component
+     ├── topToolRow.dart # The top state of the user page, hide the back button when the tab switches to the user page
+     └── userMsgRow.dart # A style component for a piece of user information
 ```
 
-# 致谢
+# Acknowledgments
 
-左右滑动手势代码来自项目 https://github.com/ditclear/tiktok_gestures 作者的封装，在此致谢。
+The left and right swipe gesture code comes from the package of the author of the project https://github.com/ditclear/tiktok_gestures, thanks here.
 
-# 请我喝咖啡
+# buy me coffee
 
-我相信本项目的代码一定能在商业项目上帮助到您，如果您从本项目中获益，不妨请作者我喝杯咖啡：
+I believe that the code of this project will definitely help you in commercial projects. If you benefit from this project, please invite the author to have a cup of coffee:
 
-![请我喝咖啡](./pay.png)
+![Bring me coffee](./pay.png)
